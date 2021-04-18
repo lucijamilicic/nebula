@@ -1,82 +1,38 @@
 import 'dart:convert';// as convert;
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'dart:io';
 
 import './screens/homeScreen.dart';
+import './airQualityModel.dart';
 
-// jsonResponse example:
-//{"coord":{"lon":50,"lat":50},
-// "list":[{"main":{"aqi":2},
-//          "components":{"co":210.29,"no":0.05,
-//                "no2":0.28,"o3":95.84,
-//                "so2":0.52,"pm2_5":2.14,
-//                "pm10":2.16,"nh3":0.19},
-//          "dt":1618736400}]}
-
-//    return AirPollution.fromJson(jsonDecode(response.body));
-
-class Coord {
-  double lon;
+class UserData {
+  String city;
   double lat;
+  double lon;
+  final String appid = 'f89441c7a29b93afe60fb897a0e25cbc';
 
-  Coord({required this.lon, required this.lat});
+  UserData(this.city, this.lat, this.lon);
 
-  factory Coord.fromJson(Map<String, dynamic> json) {
-    return Coord(
-        lon: json['lon'] as double,
-        lat: json['lat'] as double
-    );
-  }
 
-  @override
-  String toString() {
-    return 'coordinates: lon = ${this.lon}, lat = ${this.lat}';
-  }
+  // FIXME: this should probably be a separate file
 }
 
-class AirList {
-  Map<String, dynamic> main;
-  Map<String, dynamic> components;
-  int dt;
-
-  AirList({required this.main, required this.components, required this.dt});
-
-  factory AirList.fromJson(Map<String, dynamic> json) {
-    return AirList(
-        main: json['main'],
-        components: json['components'],
-        dt: json['dt']
-    );
-  }
-
-
-  @override
-  String toString() {
-    return 'aqi = ${this.main['aqi']}\ncomponents: ${this.components}\ndate and time stamp: ${this.dt}';
-  }
+class ScreensData{
+  String text;
+  ScreensData(this.text);
 }
 
-class AirPollution {
-  Coord coord;
-  AirList list;
-
-  AirPollution(this.coord, this.list);
-
-  factory AirPollution.fromJson(Map<String, dynamic> json) {
-    return AirPollution(
-        Coord.fromJson(json['coord']),
-        AirList.fromJson(json['list'][0])
-    );
-  }
-
-  @override
-  String toString() {
-    return '${this.coord.toString()}\n${this.list.toString()}';
-  }
-}
 
 void main() async {
-  runApp(MyApp());
+  ScreensData scr = ScreensData('');
+
+  // TODO: implement reading user data from file
+  double lat = 44.804;
+  double lon = 20.4651;
+  UserData usr = UserData('Belgrade', lat, lon);
+
   // send http request to openweathermap:
 
   // http://api.openweathermap.org/data/2.5/weather?q=Belgrade&appid=f89441c7a29b93afe60fb897a0e25cbc
@@ -85,27 +41,34 @@ void main() async {
 
   //  http://api.openweathermap.org/data/2.5/air_pollution?lat=44.804&lon=20.4651&appid=f89441c7a29b93afe60fb897a0e25cbc
   var url =
-    Uri.https('api.openweathermap.org', '/data/2.5/air_pollution', {'lat': '44.804', 'lon': '20.4651', 'appid': 'f89441c7a29b93afe60fb897a0e25cbc'});
+    Uri.https('api.openweathermap.org', '/data/2.5/air_pollution', {'lat': '${usr.lat}', 'lon': '${usr.lon}', 'appid': usr.appid});
 
   // Await the http get response, then decode the json-formatted response.
   var response = await http.get(url);
   if (response.statusCode == 200) {
     AirPollution pollution = AirPollution.fromJson(jsonDecode(response.body));
     print(pollution);
+    scr.text = pollution.toString();
   } else {
     print('Request failed with status: ${response.statusCode}.');
+    scr.text = 'Request failed with status: ${response.statusCode}.';
   }
+
+  runApp(MyApp(scr));
+
 }
 class MyApp extends StatelessWidget {
+  ScreensData _screensData;
+  MyApp(this._screensData);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.orange,
       ),
-      home: HomeScreen(),
+      home: HomeScreen(_screensData),
     );
   }
 }

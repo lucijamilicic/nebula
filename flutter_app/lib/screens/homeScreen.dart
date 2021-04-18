@@ -1,36 +1,30 @@
 import 'package:flutter/material.dart';
-import './detailsScreen.dart';
+import 'package:flutter_app/main.dart';
 import './mainDrawer.dart';
 
 
 class HomeScreen extends StatelessWidget{
+  ScreensData _screensData;
+  HomeScreen(this._screensData);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home page'),
+        title: Text('Current weather'),
       ),
-      drawer: MainDrawer(),
+      drawer: MainDrawer(_screensData),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('this is home page',
+            Text('Here should be daily forecast',
               style: TextStyle(
                 fontSize: 22,
               ),),
-            RaisedButton(
-              child: Text('see details'),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => DetailsScreen()
-                ));
-              },
-            )
           ],
         ),
       ),
     );
   }
-
 }

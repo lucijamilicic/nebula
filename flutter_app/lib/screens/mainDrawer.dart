@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import './detailsScreen.dart';
+import 'package:flutter_app/main.dart';
+import './aqiScreen.dart';
 import './homeScreen.dart';
 
 
 class MainDrawer extends StatelessWidget {
+  ScreensData _screensData;
+  MainDrawer(this._screensData);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -21,7 +25,7 @@ class MainDrawer extends StatelessWidget {
                     height: 100,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.lightBlueAccent
+                        color: Colors.deepOrangeAccent
                     ),
                   )
                 ],
@@ -29,29 +33,40 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Home',
+            leading: Icon(Icons.wb_sunny_outlined),
+            title: Text('Current weather',
               style: TextStyle(
-                  fontSize: 18
+                  fontSize: 22
               ),
             ),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => DetailsScreen()
+                  builder: (context) => HomeScreen(_screensData)
+              ));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.cloud_outlined),
+            title: Text('Air quality',
+              style: TextStyle(
+                  fontSize: 22
+              ),
+            ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => AqiScreen(_screensData)
               ));
             },
           ),
           ListTile(
             leading: Icon(Icons.location_on),
-            title: Text('Location',
+            title: Text('Change location',
               style: TextStyle(
-                  fontSize: 18
+                  fontSize: 22
               ),
             ),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => HomeScreen()
-              ));
+              // TODO: implement card for changing location
             },
           ),
         ],
