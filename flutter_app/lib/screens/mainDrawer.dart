@@ -5,9 +5,6 @@ import './homeScreen.dart';
 
 
 class MainDrawer extends StatelessWidget {
-  ScreensData _screensData;
-  MainDrawer(this._screensData);
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -15,33 +12,28 @@ class MainDrawer extends StatelessWidget {
         children: <Widget>[
           Container(
             width: double.infinity,
-            padding: EdgeInsets.all(20),
             color: Theme.of(context).primaryColor,
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.deepOrangeAccent
-                    ),
-                  )
-                ],
-              ),
+            child: Stack(
+              children: [
+                Image.asset(
+                  'assets/logo.jpg',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                )
+              ],
             ),
           ),
           ListTile(
             leading: Icon(Icons.wb_sunny_outlined),
             title: Text('Current weather',
               style: TextStyle(
-                  fontSize: 22
+                  fontSize: 25
               ),
             ),
             onTap: () {
+              HomeScreen.displayText();
               Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => HomeScreen(_screensData)
+                  builder: (context) => HomeScreen()
               ));
             },
           ),
@@ -49,20 +41,21 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(Icons.cloud_outlined),
             title: Text('Air quality',
               style: TextStyle(
-                  fontSize: 22
+                  fontSize: 25
               ),
             ),
             onTap: () {
+              AqiScreen.displayText();
               Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => AqiScreen(_screensData)
+                  builder: (context) => AqiScreen()
               ));
             },
           ),
           ListTile(
-            leading: Icon(Icons.location_on),
+            leading: Icon(Icons.location_on_outlined),
             title: Text('Change location',
               style: TextStyle(
-                  fontSize: 22
+                  fontSize: 25
               ),
             ),
             onTap: () {

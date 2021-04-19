@@ -42,11 +42,15 @@ class AirList {
     );
   }
 
-
   @override
   String toString() {
     return 'aqi = ${this.main['aqi']}\ncomponents: ${this.components}\ndate and time stamp: ${this.dt}';
   }
+
+  int getAqi() {
+    return main['aqi'];
+  }
+
 }
 
 class AirPollution {
@@ -66,4 +70,38 @@ class AirPollution {
   String toString() {
     return '${this.coord.toString()}\n${this.list.toString()}';
   }
+
+  int getAqi() {
+    return this.list.getAqi();
+  }
+
+  String getAqiFormated() {
+    int aqi = this.getAqi();
+    if(aqi == 1)
+      return 'Good';
+    else if(aqi == 2)
+      return 'Fair';
+    else if(aqi == 3)
+      return 'Moderate';
+    else if(aqi == 4)
+      return 'Poor';
+    else if(aqi == 5)
+      return 'Very poor';
+
+    return '';
+  }
+
+  Map<String, dynamic> getComponents(){
+    return this.list.components;
+  }
+
+  String getComponentsFormated(){
+    String str = '';
+    var cmp = this.getComponents();
+    for(String c in cmp.keys){
+      str += c + ': ' + cmp[c].toString() + 'μg/m3\n';
+    }
+    return str;
+  }
+
 }
