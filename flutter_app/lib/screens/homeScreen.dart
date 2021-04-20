@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
 import './mainDrawer.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_app/loadingData.dart';
 
 
 
@@ -13,20 +12,9 @@ class HomeScreen extends StatelessWidget{
 
   static void displayText () async {
 
-    // TODO: Loading user data from file
-
-    //Belgrade:
-    // double lat = 44.804;
-    // double lon = 20.4651;
-
-    //Tokio:
-    double lat = 35.6895;
-    double lon = 139.6917;
-    UserData usr = UserData('Belgrade', lat, lon);
-
     http://api.openweathermap.org/data/2.5/weather?q=Belgrade&appid=f89441c7a29b93afe60fb897a0e25cbc
     var url =
-         Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : usr.city, 'appid' : usr.appid});
+         Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'appid' : UserData.appid});
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
     if (response.statusCode == 200) {
@@ -54,7 +42,7 @@ class HomeScreen extends StatelessWidget{
         child: Stack(
           children: [
             Image.asset(
-              'assets/snow.jpeg',
+              'assets/sunny.jpg',
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
@@ -68,7 +56,7 @@ class HomeScreen extends StatelessWidget{
                   children: [
                     SizedBox(height: 120,),
                     Text(
-                      'Belgrade',
+                      '${UserData.city}',
                       style: GoogleFonts.lato(
                         fontSize: 35,
                         fontWeight: FontWeight.bold,

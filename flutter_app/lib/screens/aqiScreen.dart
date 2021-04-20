@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
+import 'package:http/http.dart' as http;
+import 'package:google_fonts/google_fonts.dart';
+
 import './mainDrawer.dart';
 import 'package:flutter_app/airQualityModel.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_app/loadingData.dart';
 
 
 
 class AqiScreen extends StatelessWidget{
   // ? allows it to have null value so when we change its type from string to some object we dont have to change logic
   static AirPollution? _airPollution;
-  static UserData? _userData;
+  //static UserData? _userData;
 
   static void displayText() async {
 
@@ -33,23 +34,28 @@ class AqiScreen extends StatelessWidget{
     // double lon = 139.6917;
 
     Jakarta:
-    var str = 'Jakarta';
-    double lat = -6.2146;
-    double lon = 106.8451;
+    // var str = 'Jakarta';
+    // double lat = -6.2146;
+    // double lon = 106.8451;
 
     Stokholm:
-    // var str = 'Stokholm';
-    // double lat = 59.3326;
-    // double lon = 18.0649;
+    var str = 'Stokholm';
+    double lat = 59.3326;
+    double lon = 18.0649;
 
-    UserData usr = UserData(str, lat, lon);
-    _userData = usr;
+    // UserData usr = UserData(str, lat, lon);
+    // _userData = usr;
+
+    /// this part will be in file reading func
+    UserData.lon = lon;
+    UserData.lat = lat;
+    UserData.city = str;
 
     // send http request
     // api.openweathermap.org/data/2.5/air_pollution?lat=44.804&lon=20.4651&appid=f89441c7a29b93afe60fb897a0e25cbc
 
     var url =
-    Uri.https('api.openweathermap.org', '/data/2.5/air_pollution', {'lat': '${_userData?.lat}', 'lon': '${_userData?.lon}', 'appid': _userData?.appid});
+    Uri.https('api.openweathermap.org', '/data/2.5/air_pollution', {'lat': '${UserData.lat}', 'lon': '${UserData.lon}', 'appid': UserData.appid});
 
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
@@ -94,7 +100,7 @@ class AqiScreen extends StatelessWidget{
                 children: [
                   SizedBox(height: 120,),
                   Text(
-                    '${_userData?.city}',
+                    '${UserData.city}',
                     style: GoogleFonts.lato(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
