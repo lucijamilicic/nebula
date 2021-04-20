@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import './mainDrawer.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_app/loadingData.dart';
+import 'dart:convert';
 
+import 'package:flutter_app/loadingData.dart';
+import './mainDrawer.dart';
+import 'package:flutter_app/weatherModel.dart';
+import 'resizingScreens.dart';
 
 
 class HomeScreen extends StatelessWidget{
@@ -18,17 +21,20 @@ class HomeScreen extends StatelessWidget{
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
     if (response.statusCode == 200) {
+      WeatherInfo info = WeatherInfo.fromJson(jsonDecode(response.body));
+      //print(info.toString());
       //print(response.body);
-      HomeScreen._displayText = response.body;
     } else {
       print('Request failed with status: ${response.statusCode}.');
-      HomeScreen._displayText = 'Request failed with status: ${response.statusCode}.';
     }
   }
 
 
   @override
   Widget build(BuildContext context) {
+    // configure aspect ratio depending on screen size
+    SizeConfig.init(context);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(

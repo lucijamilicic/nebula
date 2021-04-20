@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
+
 import './aqiScreen.dart';
 import './homeScreen.dart';
 

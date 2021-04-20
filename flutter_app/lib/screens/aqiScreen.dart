@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:convert';
 
 import './mainDrawer.dart';
 import 'package:flutter_app/airQualityModel.dart';
-import 'dart:convert';
 import 'package:flutter_app/loadingData.dart';
+import 'package:flutter_app/screens/resizingScreens.dart';
 
 
 
@@ -16,40 +17,6 @@ class AqiScreen extends StatelessWidget{
   //static UserData? _userData;
 
   static void displayText() async {
-
-    // TODO: Loading user data from file
-    //Belgrade:
-    // var str = 'Belgrade';
-    // double lat = 44.804;
-    // double lon = 20.4651;
-
-    //Pozarevac
-    // var str = 'Pozarevac';
-    // double lon = 21.1825;
-    // double lat = 44.6153;
-
-    //Tokio:
-    // var str = 'Tokio';
-    // double lat = 35.6895;
-    // double lon = 139.6917;
-
-    Jakarta:
-    // var str = 'Jakarta';
-    // double lat = -6.2146;
-    // double lon = 106.8451;
-
-    Stokholm:
-    var str = 'Stokholm';
-    double lat = 59.3326;
-    double lon = 18.0649;
-
-    // UserData usr = UserData(str, lat, lon);
-    // _userData = usr;
-
-    /// this part will be in file reading func
-    UserData.lon = lon;
-    UserData.lat = lat;
-    UserData.city = str;
 
     // send http request
     // api.openweathermap.org/data/2.5/air_pollution?lat=44.804&lon=20.4651&appid=f89441c7a29b93afe60fb897a0e25cbc
@@ -72,6 +39,9 @@ class AqiScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    // configure aspect ratio depending on screen size
+    SizeConfig.init(context);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -98,7 +68,7 @@ class AqiScreen extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 120,),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 12,),
                   Text(
                     '${UserData.city}',
                     style: GoogleFonts.lato(
@@ -123,7 +93,7 @@ class AqiScreen extends StatelessWidget{
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 250,),
+                  SizedBox(height: SizeConfig.blockSizeVertical! * 30,),
                   Text(
                     'Components',
                     style: GoogleFonts.lato(

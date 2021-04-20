@@ -1,3 +1,4 @@
+///parsing json response in format:
 //{"coord":{"lon":20.4651,"lat":44.804},
 // "weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}],
 // "base":"stations",
@@ -182,6 +183,12 @@ class WeatherInfo {
         name: json['name'] as String,
         cod: json['cod'] as int
     );
+  }
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return 'radi';
   }
 
 }
