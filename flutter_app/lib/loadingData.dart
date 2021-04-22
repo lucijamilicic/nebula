@@ -5,6 +5,7 @@ class UserData {
   static double? lat;
   static double? lon;
   static final  String appid = 'f89441c7a29b93afe60fb897a0e25cbc';
+  static final String units = 'metric';
 
   //TODO: implement storing user data with shared preferences
   static saveCity() async {

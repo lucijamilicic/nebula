@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 ///parsing json response in format:
 //{"coord":{"lon":20.4651,"lat":44.804},
 // "weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}],
@@ -78,7 +80,7 @@ class WMain {
 
   factory WMain.fromJson(Map<String, dynamic> json) {
     return WMain(
-        temp: json['temp'],
+        temp: json['temp'] as double,
         feels_like: json['feels_like'],
         temp_min: json['temp_min'],
         temp_max: json['temp_max'],
@@ -88,19 +90,19 @@ class WMain {
   }
 
   double getTemp() {
-    return this.temp;
+    return this.temp - 272.15;
   }
 
   double getFeelsLike() {
-    return this.feels_like;
+    return this.feels_like - 272.15;
   }
 
   double getMinTemp() {
-    return this.temp_min;
+    return this.temp_min - 272.15;
   }
 
   double getMaxTemp() {
-    return this.temp_max;
+    return this.temp_max - 272.15;
   }
 
   @override
@@ -226,24 +228,24 @@ class WeatherInfo {
     return this.sys.getCountry();
   }
 
-  double getTemp() {
-    return this.wmain.getTemp();
+  String getTemp() {
+    return (this.wmain.getTemp()).toStringAsFixed(1);
   }
 
-  double getFeelsLike() {
-    return this.wmain.getFeelsLike();
+  String getFeelsLike() {
+    return (this.wmain.getFeelsLike()).toStringAsFixed(1);
   }
 
   double getWindSpeed() {
     return this.wind.getWindSpeed();
   }
 
-  double getMinTemp() {
-    return this.wmain.getMinTemp();
+  String getMinTemp() {
+    return (this.wmain.getMinTemp()).toStringAsFixed(1);
   }
 
-  double getMaxTemp() {
-    return this.wmain.getMaxTemp();
+  String getMaxTemp() {
+    return (this.wmain.getMaxTemp()).toStringAsFixed(1);
   }
 
   @override

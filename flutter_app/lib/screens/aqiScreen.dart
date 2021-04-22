@@ -16,7 +16,7 @@ class AqiScreen extends StatelessWidget{
   static AirPollution? _airPollution;
   //static UserData? _userData;
 
-  static void displayText() async {
+  static Future<void> displayText() async {
 
     // send http request
     // api.openweathermap.org/data/2.5/air_pollution?lat=44.804&lon=20.4651&appid=f89441c7a29b93afe60fb897a0e25cbc
@@ -66,52 +66,67 @@ class AqiScreen extends StatelessWidget{
             Container(
               padding: EdgeInsets.all(20),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
+
                 children: [
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 12,),
-                  Text(
-                    '${UserData.city}',
-                    style: GoogleFonts.lato(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 100),
+                      Text(
+                        '${UserData.city}',
+                        style: GoogleFonts.lato(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        '${_airPollution?.getAqiFormated()}',
+                        style: GoogleFonts.lato(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        '(Air quality index: ${_airPollution?.getAqi()})',
+                        style: GoogleFonts.lato(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                      ]
+                      //SizedBox(height: SizeConfig.blockSizeVertical! * 30,),
                     ),
-                  ),
-                  Text(
-                    '${_airPollution?.getAqiFormated()}',
-                    style: GoogleFonts.lato(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    '(Air quality index: ${_airPollution?.getAqi()})',
-                    style: GoogleFonts.lato(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  SizedBox(height: SizeConfig.blockSizeVertical! * 30,),
-                  Text(
-                    'Components',
-                    style: GoogleFonts.lato(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    '${_airPollution?.getComponentsFormated()}',
-                    style: GoogleFonts.lato(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Components',
+                            style: GoogleFonts.lato(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            '${_airPollution?.getComponentsFormated()}',
+                            style: GoogleFonts.lato(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ),
+
+                        ],
+                      )
+
+
                 ],
-                  )
+              )
             )
           ],
         ),

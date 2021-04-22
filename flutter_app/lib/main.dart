@@ -11,9 +11,9 @@ void main() async {
 
   // TODO: Loading user data from input box and storing it
   //Belgrade:
-  // var str = 'Belgrade';
-  // double lat = 44.804;
-  // double lon = 20.4651;
+  //var str = 'Belgrade';
+  //double lat = 44.804;
+  //double lon = 20.4651;
 
   //Pozarevac
   // var str = 'Pozarevac';
@@ -26,14 +26,14 @@ void main() async {
   // double lon = 139.6917;
 
   Jakarta:
-  // var str = 'Jakarta';
-  // double lat = -6.2146;
-  // double lon = 106.8451;
+   var str = 'Jakarta';
+   double lat = -6.2146;
+   double lon = 106.8451;
 
-  Stokholm:
-  var str = 'Stokholm';
-  double lat = 59.3326;
-  double lon = 18.0649;
+  //Stokholm:
+  //var str = 'Stokholm';
+  //double lat = 59.3326;
+  //double lon = 18.0649;
 
   // UserData usr = UserData(str, lat, lon);
   // _userData = usr;
@@ -44,8 +44,8 @@ void main() async {
   UserData.city = str;
 
 
-  HomeScreen.displayText();
-  AqiScreen.displayText();
+  await HomeScreen.displayText();
+  await AqiScreen.displayText();
   runApp(MyApp());
 
   UserData.saveCity();

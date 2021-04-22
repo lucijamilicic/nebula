@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 import 'package:flutter_app/loadingData.dart';
 import './mainDrawer.dart';
@@ -16,10 +17,10 @@ class HomeScreen extends StatelessWidget{
   static WeatherInfo? _weatherInfo;
   static String? _dateFormatted;
 
-  static void displayText () async {
+  static Future<void> displayText () async {
 
     // MORA DA SE PROMENI U METRIC
-    http://api.openweathermap.org/data/2.5/weather?q=Belgrade&appid=f89441c7a29b93afe60fb897a0e25cbc
+    http://api.openweathermap.org/data/2.5/weather?q=Belgrade&units=metric&appid=f89441c7a29b93afe60fb897a0e25cbc
     var url =
          Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'appid' : UserData.appid});
     // Await the http get response, then decode the json-formatted response.
@@ -27,13 +28,12 @@ class HomeScreen extends StatelessWidget{
     if (response.statusCode == 200) {
       WeatherInfo info = WeatherInfo.fromJson(jsonDecode(response.body));
       _weatherInfo = info;
-      /*
+      //print(info.wmain);
+
       var now = DateTime.now();
-      var date = DateTime(now.day, now.month, now.year);
-      _dateFormatted = date.toString();
-      print(_dateFormatted);
-      print(_weatherInfo?.getMain());
-      */
+      var formatter = DateFormat('dd.MM.yyyy.');
+      _dateFormatted = formatter.format(now);
+      //print(_dateFormatted);
 
       //print(info.toString());
       //print(response.body);
@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget{
                               Text(
                                 '${UserData.city}',
                                 style: GoogleFonts.lato(
-                                  fontSize: 35,
+                                  fontSize: 50,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -96,10 +96,10 @@ class HomeScreen extends StatelessWidget{
                                 height: 5,
                               ),
                               Text(
-                                'datum',
+                                '${_dateFormatted}',
                                 style: GoogleFonts.lato(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
                                   color: Colors.white,
                                 ),
                               ),
@@ -111,7 +111,7 @@ class HomeScreen extends StatelessWidget{
                               Text(
                                 '${_weatherInfo?.getTemp()}\u2103',
                                 style: GoogleFonts.lato(
-                                  fontSize: 85,
+                                  fontSize: 55,
                                   fontWeight: FontWeight.w300,
                                   color: Colors.white,
                                 ),
@@ -157,7 +157,7 @@ class HomeScreen extends StatelessWidget{
                                      color: Colors.white,)
                                ),
                                Text(
-                                   'km/h',
+                                   'm/s',
                                    style: GoogleFonts.lato(
                                      fontSize: 14,
                                      fontWeight: FontWeight.w500,

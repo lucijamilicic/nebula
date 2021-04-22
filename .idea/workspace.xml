@@ -20,14 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="294c2b06-fd48-4ab9-8cf2-438c1b6a1c36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/flutter_app/assets/clouds.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/assets/cloudy.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/assets/rainy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/assets/snow.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/assets/sunny.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_app/lib/loadingData.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/loadingData.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_app/lib/screens/aqiScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/screens/aqiScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_app/lib/screens/homeScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/screens/homeScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_app/lib/weatherModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/weatherModel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_app/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,30 +94,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="323" y="175" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1618936285129" />
-    <state x="94" y="94" width="1349" height="637" key="AVDManager" timestamp="1619043565707">
+    <state x="94" y="94" width="1349" height="637" key="AVDManager" timestamp="1619085322630">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="94" y="94" width="1349" height="637" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1619043565707" />
+    <state x="94" y="94" width="1349" height="637" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1619085322630" />
     <state x="373" y="140" key="FileChooserDialogImpl" timestamp="1618936702876">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="373" y="140" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618936702876" />
-    <state width="1492" height="255" key="GridCell.Tab.0.bottom" timestamp="1619043501286">
+    <state width="1050" height="198" key="GridCell.Tab.0.bottom" timestamp="1619087964252">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="255" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619043501286" />
-    <state width="1492" height="255" key="GridCell.Tab.0.center" timestamp="1619043501286">
+    <state width="1050" height="198" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
+    <state width="1050" height="198" key="GridCell.Tab.0.center" timestamp="1619087964252">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="255" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619043501286" />
-    <state width="1492" height="255" key="GridCell.Tab.0.left" timestamp="1619043501286">
+    <state width="1050" height="198" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
+    <state width="1050" height="198" key="GridCell.Tab.0.left" timestamp="1619087964252">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="255" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619043501286" />
-    <state width="1492" height="255" key="GridCell.Tab.0.right" timestamp="1619043501286">
+    <state width="1050" height="198" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
+    <state width="1050" height="198" key="GridCell.Tab.0.right" timestamp="1619087964252">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="255" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619043501286" />
+    <state width="1050" height="198" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
     <state x="446" y="101" key="SettingsEditor" timestamp="1618936802177">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

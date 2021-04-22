@@ -27,6 +27,7 @@ dependencies:
   json_annotation: ^4.0.0
   google_fonts: ^2.0.0
   flutter_svg: ^0.19.1
+  intl: ^0.17.0
 
 
 
