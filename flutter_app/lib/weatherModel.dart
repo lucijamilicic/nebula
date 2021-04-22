@@ -49,6 +49,16 @@ class Weather {
     );
   }
 
+  String getMain() {
+    var str = this.main.toLowerCase();
+    if(str=='mist' || str=='smoke' || str=='haze')
+      str = 'fog';
+    if(str=='sqall' || str=='tornado' || str=='sand' || str=='ash')
+      str = 'dust';
+
+    return str + '.jpg';
+  }
+
   @override
   String toString() {
     return 'weather: id = ${this.id}, main = ${this.main}, description =${this.description}, icon =${this.icon}';
@@ -77,6 +87,22 @@ class WMain {
     );
   }
 
+  double getTemp() {
+    return this.temp;
+  }
+
+  double getFeelsLike() {
+    return this.feels_like;
+  }
+
+  double getMinTemp() {
+    return this.temp_min;
+  }
+
+  double getMaxTemp() {
+    return this.temp_max;
+  }
+
   @override
   String toString() {
     return 'main: temp = ${this.temp}, feels_like = ${this.feels_like}, temp_min =${this.temp_min}, temp_max =${this.temp_max}, pressure = ${this.pressure}, humidity = ${this.humidity}';
@@ -94,6 +120,10 @@ class Wind {
         speed: json['speed'],
         deg: json['deg']
     );
+  }
+
+  double getWindSpeed() {
+    return this.speed;
   }
 
   @override
@@ -138,6 +168,10 @@ class Sys {
     );
   }
 
+  String getCountry() {
+    return this.country;
+  }
+
   @override
   String toString() {
     return 'sys: type = ${this.type}, id = ${this.id}, country =${this.country}, sunrise =${this.sunrise}, sunset = ${this.sunset}';
@@ -162,8 +196,7 @@ class WeatherInfo {
   // WeatherInfo({required this.coord, required this.weather, required this.base, required this.wmain, required this.visibility,
   // required this.wind, required this.clouds, required this.dt, required this.sys, required this.timezone, required this.id, required this.name, required this.cod});
 
-  WeatherInfo(this.coord, this.weather, this.wmain, this.wind, this.clouds,
-      this.sys,
+  WeatherInfo(this.coord, this.weather, this.wmain, this.wind, this.clouds, this.sys,
       {required this.base, required this.visibility, required this.dt, required this.timezone, required this.id, required this.name, required this.cod});
 
 
@@ -185,10 +218,37 @@ class WeatherInfo {
     );
   }
 
+  String getMain() {
+    return this.weather.getMain();
+  }
+
+  String getCountry() {
+    return this.sys.getCountry();
+  }
+
+  double getTemp() {
+    return this.wmain.getTemp();
+  }
+
+  double getFeelsLike() {
+    return this.wmain.getFeelsLike();
+  }
+
+  double getWindSpeed() {
+    return this.wind.getWindSpeed();
+  }
+
+  double getMinTemp() {
+    return this.wmain.getMinTemp();
+  }
+
+  double getMaxTemp() {
+    return this.wmain.getMaxTemp();
+  }
+
   @override
   String toString() {
     // TODO: implement toString
     return 'radi';
   }
-
 }

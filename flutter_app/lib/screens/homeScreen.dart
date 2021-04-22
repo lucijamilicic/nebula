@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
@@ -12,9 +13,12 @@ import 'resizingScreens.dart';
 class HomeScreen extends StatelessWidget{
   // ? allows it to have null value so when we change its type from string to some object we dont have to change logic
   static String? _displayText;
+  static WeatherInfo? _weatherInfo;
+  static String? _dateFormatted;
 
   static void displayText () async {
 
+    // MORA DA SE PROMENI U METRIC
     http://api.openweathermap.org/data/2.5/weather?q=Belgrade&appid=f89441c7a29b93afe60fb897a0e25cbc
     var url =
          Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'appid' : UserData.appid});
@@ -22,6 +26,15 @@ class HomeScreen extends StatelessWidget{
     var response = await http.get(url);
     if (response.statusCode == 200) {
       WeatherInfo info = WeatherInfo.fromJson(jsonDecode(response.body));
+      _weatherInfo = info;
+      /*
+      var now = DateTime.now();
+      var date = DateTime(now.day, now.month, now.year);
+      _dateFormatted = date.toString();
+      print(_dateFormatted);
+      print(_weatherInfo?.getMain());
+      */
+
       //print(info.toString());
       //print(response.body);
     } else {
@@ -48,7 +61,7 @@ class HomeScreen extends StatelessWidget{
         child: Stack(
           children: [
             Image.asset(
-              'assets/sunny.jpg',
+              'assets/${_weatherInfo?.getMain()}',
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
@@ -59,18 +72,155 @@ class HomeScreen extends StatelessWidget{
             Container(
                 padding: EdgeInsets.all(20),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 120,),
-                    Text(
-                      '${UserData.city}',
-                      style: GoogleFonts.lato(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 100,),
+                              Text(
+                                '${UserData.city}',
+                                style: GoogleFonts.lato(
+                                  fontSize: 35,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'datum',
+                                style: GoogleFonts.lato(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${_weatherInfo?.getTemp()}\u2103',
+                                style: GoogleFonts.lato(
+                                  fontSize: 85,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                'Feels like: ${_weatherInfo?.getFeelsLike()}\u2103',
+                                style: GoogleFonts.lato(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
+                    Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 40),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.white30)),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                           Column(
+                             children: [
+                               Text(
+                                 'Wind',
+                                 style: GoogleFonts.lato(
+                                   fontSize: 14,
+                                   fontWeight: FontWeight.w500,
+                                   color: Colors.white,)
+                               ),
+                               Text(
+                                   '${_weatherInfo?.getWindSpeed()}',
+                                   style: GoogleFonts.lato(
+                                     fontSize: 18,
+                                     fontWeight: FontWeight.bold,
+                                     color: Colors.white,)
+                               ),
+                               Text(
+                                   'km/h',
+                                   style: GoogleFonts.lato(
+                                     fontSize: 14,
+                                     fontWeight: FontWeight.w500,
+                                     color: Colors.white,)
+                               ),
+                             ],
+                           ),
+                            Column(
+                              children: [
+                                Text(
+                                    'Min temp',
+                                    style: GoogleFonts.lato(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,)
+                                ),
+                                Text(
+                                    '${_weatherInfo?.getMinTemp()}',
+                                    style: GoogleFonts.lato(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,)
+                                ),
+                                Text(
+                                    '\u2103',
+                                    style: GoogleFonts.lato(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,)
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                    'Max temp',
+                                    style: GoogleFonts.lato(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,)
+                                ),
+                                Text(
+                                    '${_weatherInfo?.getMaxTemp()}',
+                                    style: GoogleFonts.lato(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,)
+                                ),
+                                Text(
+                                    '\u2103',
+                                    style: GoogleFonts.lato(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,)
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    )
                   ],
-                )
+                ),
             )
           ],
         ),
