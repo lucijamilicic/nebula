@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import './aqiScreen.dart';
 import './homeScreen.dart';
@@ -26,11 +27,15 @@ class MainDrawer extends StatelessWidget {
           ),
           SizedBox(height: SizeConfig.blockSizeVertical! * 5),
           ListTile(
-            leading: Icon(Icons.wb_sunny_outlined, color: Colors.white,),
+            leading: Icon(
+              Icons.wb_sunny_outlined,
+              color: Colors.white,
+            ),
             title: Text('Current weather',
-              style: TextStyle(
+              style: GoogleFonts.lato(
                   fontSize: 25,
-                  color: Colors.white
+                  color: Colors.white,
+                  //fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
@@ -41,11 +46,15 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.cloud_outlined, color: Colors.white,),
+            leading: Icon(
+              Icons.cloud_outlined,
+              color: Colors.white,
+            ),
             title: Text('Air quality',
-              style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.white,
+              style: GoogleFonts.lato(
+                fontSize: 25,
+                color: Colors.white,
+                //fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
@@ -56,11 +65,15 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.location_on_outlined, color: Colors.white,),
+            leading: Icon(
+              Icons.location_on_outlined,
+              color: Colors.white,
+            ),
             title: Text('Change location',
-              style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.white,
+              style: GoogleFonts.lato(
+                fontSize: 25,
+                color: Colors.white,
+                //fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
