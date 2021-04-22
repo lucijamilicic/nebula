@@ -73,7 +73,7 @@ class AqiScreen extends StatelessWidget{
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 100),
+                      SizedBox(height: SizeConfig.blockSizeVertical! * 10),
                       Text(
                         '${UserData.city}',
                         style: GoogleFonts.lato(
@@ -99,7 +99,6 @@ class AqiScreen extends StatelessWidget{
                         ),
                       ),
                       ]
-                      //SizedBox(height: SizeConfig.blockSizeVertical! * 30,),
                     ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

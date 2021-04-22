@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 
 import './aqiScreen.dart';
 import './homeScreen.dart';
-
+import 'resizingScreens.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Drawer(
       child: Column(
         children: <Widget>[
           Container(
             width: double.infinity,
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).canvasColor,
             child: Stack(
               children: [
                 Image.asset(
@@ -23,11 +24,13 @@ class MainDrawer extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(height: SizeConfig.blockSizeVertical! * 5),
           ListTile(
-            leading: Icon(Icons.wb_sunny_outlined),
+            leading: Icon(Icons.wb_sunny_outlined, color: Colors.white,),
             title: Text('Current weather',
               style: TextStyle(
-                  fontSize: 25
+                  fontSize: 25,
+                  color: Colors.white
               ),
             ),
             onTap: () {
@@ -38,10 +41,11 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.cloud_outlined),
+            leading: Icon(Icons.cloud_outlined, color: Colors.white,),
             title: Text('Air quality',
               style: TextStyle(
-                  fontSize: 25
+                  fontSize: 25,
+                  color: Colors.white,
               ),
             ),
             onTap: () {
@@ -52,14 +56,16 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.location_on_outlined),
+            leading: Icon(Icons.location_on_outlined, color: Colors.white,),
             title: Text('Change location',
               style: TextStyle(
-                  fontSize: 25
+                  fontSize: 25,
+                  color: Colors.white,
               ),
             ),
             onTap: () {
               // TODO: implement card for changing location
+              Navigator.pop(context); // close the drawer
             },
           ),
         ],

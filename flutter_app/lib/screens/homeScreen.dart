@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget{
 
   static Future<void> displayText () async {
 
-    // MORA DA SE PROMENI U METRIC
+    //FIXME: metric units
     http://api.openweathermap.org/data/2.5/weather?q=Belgrade&units=metric&appid=f89441c7a29b93afe60fb897a0e25cbc
     var url =
          Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'appid' : UserData.appid});
@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget{
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 100,),
+                              SizedBox(height: SizeConfig.blockSizeVertical! * 10,),
                               Text(
                                 '${UserData.city}',
                                 style: GoogleFonts.lato(
@@ -93,10 +93,10 @@ class HomeScreen extends StatelessWidget{
                                 ),
                               ),
                               SizedBox(
-                                height: 5,
+                                height: SizeConfig.blockSizeVertical!,
                               ),
                               Text(
-                                '${_dateFormatted}',
+                                _dateFormatted!,
                                 style: GoogleFonts.lato(
                                   fontSize: 25,
                                   fontWeight: FontWeight.w500,

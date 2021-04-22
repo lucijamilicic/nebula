@@ -11,9 +11,9 @@ void main() async {
 
   // TODO: Loading user data from input box and storing it
   //Belgrade:
-  //var str = 'Belgrade';
-  //double lat = 44.804;
-  //double lon = 20.4651;
+  var str = 'Belgrade';
+  double lat = 44.804;
+  double lon = 20.4651;
 
   //Pozarevac
   // var str = 'Pozarevac';
@@ -26,9 +26,9 @@ void main() async {
   // double lon = 139.6917;
 
   Jakarta:
-   var str = 'Jakarta';
-   double lat = -6.2146;
-   double lon = 106.8451;
+   // var str = 'Jakarta';
+   // double lat = -6.2146;
+   // double lon = 106.8451;
 
   //Stokholm:
   //var str = 'Stokholm';
@@ -65,6 +65,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
+        canvasColor: Colors.white10,
       ),
       home: HomeScreen(),
     );

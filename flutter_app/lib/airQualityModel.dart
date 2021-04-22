@@ -99,7 +99,7 @@ class AirPollution {
     String str = '';
     var cmp = this.getComponents();
     for(String c in cmp.keys){
-      str += c + ': ' + cmp[c].toString() + 'μg/m3\n';
+      str += c + ': ' + cmp[c].toString() + 'μg/m\u00B3\n';
     }
     return str;
   }
