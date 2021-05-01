@@ -6,6 +6,7 @@ import '../loadingData.dart';
 import './aqiScreen.dart';
 import './homeScreen.dart';
 import 'resizingScreens.dart';
+import './changeLocation.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -79,9 +80,13 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
+                ChangeLocation.displayText();
+                Navigator.push(context, MaterialPageRoute(
+                builder: (context) => ChangeLocation()
+                ));
+                },
               // TODO: implement card for changing location
-              Navigator.pop(context); // close the drawer
-            },
+    //Navigator.pop(context); // close the drawer
           ),
         ],
       ),

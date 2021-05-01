@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import './screens/homeScreen.dart';
 import 'loadingData.dart';
+import './screens/changeLocation.dart';
 
 
 void main() async {
@@ -31,6 +32,7 @@ void main() async {
   print(lat);
   print(str);
 
+ // await changeLocation.displayText();
   await HomeScreen.displayText();
   await AqiScreen.displayText();
   runApp(MyApp());
