@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/loadingData.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../loadingData.dart';
 import './aqiScreen.dart';
 import './homeScreen.dart';
 import 'resizingScreens.dart';

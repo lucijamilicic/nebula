@@ -9,56 +9,36 @@ import 'loadingData.dart';
 
 void main() async {
 
-  // TODO: Loading user data from input box and storing it
-  //Belgrade:
-  var str = 'Belgrade';
-  double lat = 44.804;
-  double lon = 20.4651;
+  WidgetsFlutterBinding.ensureInitialized();
 
-  //Pozarevac
-  // var str = 'Pozarevac';
-  // double lon = 21.1825;
-  // double lat = 44.6153;
 
-  //Tokio:
-  // var str = 'Tokio';
-  // double lat = 35.6895;
-  // double lon = 139.6917;
+  UserData.saveData();
 
-  Jakarta:
-   // var str = 'Jakarta';
-   // double lat = -6.2146;
-   // double lon = 106.8451;
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String str = prefs.getString('city') ?? '';
+  double lon = prefs.getDouble('lon') ?? 0;
+  double lat = prefs.getDouble('lat') ?? 0;
 
-  //Stokholm:
-  //var str = 'Stokholm';
-  //double lat = 59.3326;
-  //double lon = 18.0649;
+  //print(stringValue);
 
-  // UserData usr = UserData(str, lat, lon);
-  // _userData = usr;
 
   /// this part will be in loading data func
   UserData.lon = lon;
   UserData.lat = lat;
   UserData.city = str;
 
+  print(lon);
+  print(lat);
+  print(str);
 
   await HomeScreen.displayText();
   await AqiScreen.displayText();
   runApp(MyApp());
 
-  UserData.saveCity();
-
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-    //Return String
-  String stringValue = prefs.getString('city') ?? '';
-
-  //print(stringValue);
-
 }
+
+
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -13,7 +13,6 @@ import 'resizingScreens.dart';
 
 class HomeScreen extends StatelessWidget{
   // ? allows it to have null value so when we change its type from string to some object we dont have to change logic
-  static String? _displayText;
   static WeatherInfo? _weatherInfo;
   static String? _dateFormatted;
 
@@ -38,7 +37,7 @@ class HomeScreen extends StatelessWidget{
       //print(info.toString());
       //print(response.body);
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      print('Request failed with status: ${response.statusCode}.aaaa');
     }
   }
 
