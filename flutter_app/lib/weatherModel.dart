@@ -80,29 +80,29 @@ class WMain {
 
   factory WMain.fromJson(Map<String, dynamic> json) {
     return WMain(
-        temp: json['temp'] as double,
-        feels_like: json['feels_like'],
-        temp_min: json['temp_min'],
-        temp_max: json['temp_max'],
+        temp: json['temp'].toDouble(),
+        feels_like: json['feels_like'].toDouble(),
+        temp_min: json['temp_min'].toDouble(),
+        temp_max: json['temp_max'].toDouble(),
         pressure: json['pressure'],
         humidity: json['humidity']
     );
   }
 
   double getTemp() {
-    return this.temp - 272.15;
+    return this.temp;
   }
 
   double getFeelsLike() {
-    return this.feels_like - 272.15;
+    return this.feels_like;
   }
 
   double getMinTemp() {
-    return this.temp_min - 272.15;
+    return this.temp_min;
   }
 
   double getMaxTemp() {
-    return this.temp_max - 272.15;
+    return this.temp_max;
   }
 
   @override

@@ -17,17 +17,18 @@ class HomeScreen extends StatelessWidget{
   static String? _dateFormatted;
 
   static Future<void> displayText () async {
-
-    //FIXME: metric units
+    
     http://api.openweathermap.org/data/2.5/weather?q=Belgrade&units=metric&appid=f89441c7a29b93afe60fb897a0e25cbc
     var url =
-         Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'appid' : UserData.appid});
+         Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'units' : 'metric','appid' : UserData.appid});
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
     if (response.statusCode == 200) {
+      //print(response.body);
       WeatherInfo info = WeatherInfo.fromJson(jsonDecode(response.body));
       _weatherInfo = info;
       //print(info.wmain);
+
 
       print(UserData.city.toString() + " " +  UserData.lon.toString() + " " + UserData.lat.toString());
 

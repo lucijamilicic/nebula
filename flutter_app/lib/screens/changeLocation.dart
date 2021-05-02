@@ -26,23 +26,6 @@ class ChangeLocation extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class ChangeLocationn extends State<ChangeLocation> {
-  //
-  // static AirPollution? _airPollution;
-  //
-  // static Future<void> displayText() async {
-  //   var url =
-  //       Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'appid' : UserData.appid});
-  //
-  //   // Await the http get response, then decode the json-formatted response.
-  //   var response = await http.get(url);
-  //   if (response.statusCode == 200) {
-  //     AirPollution pollution = AirPollution.fromJson(jsonDecode(response.body));
-  //     // print(pollution);
-  //     _airPollution = pollution;
-  //   } else {
-  //     print('Request failed with status: ${response.statusCode}.');
-  //   }
-  // }
 
   late TextEditingController _controller;
 
@@ -110,7 +93,7 @@ class ChangeLocationn extends State<ChangeLocation> {
                           style:TextStyle(
                             color:Colors.white
                           ),
-                          obscureText: true,
+                          //obscureText: true,
                           autofocus: true,
                           controller: _controller,
                           onSubmitted: (String value) async {
@@ -150,7 +133,7 @@ class ChangeLocationn extends State<ChangeLocation> {
                               decorationColor: Colors.white,
                               color: Colors.white
                             ),
-                            hintText: '________________',
+                            //hintText: '________________',
                             hintStyle: TextStyle(
                               color:Colors.white
                             ),
