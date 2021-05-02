@@ -80,7 +80,7 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-                ChangeLocationn.displayText();
+                // ChangeLocationn.displayText();
                 Navigator.push(context, MaterialPageRoute(
                 builder: (context) => ChangeLocation()
                 ));

@@ -15,6 +15,7 @@ import 'package:flutter_app/loadingData.dart';
 import './mainDrawer.dart';
 import 'package:flutter_app/weatherModel.dart';
 import 'resizingScreens.dart';
+import './homeScreen.dart';
 
 class ChangeLocation extends StatefulWidget {
   const ChangeLocation({Key? key}) : super(key: key);
@@ -25,23 +26,23 @@ class ChangeLocation extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class ChangeLocationn extends State<ChangeLocation> {
-
-  static AirPollution? _airPollution;
-
-  static Future<void> displayText() async {
-    var url =
-    Uri.https('api.openweathermap.org', '/data/2.5/air_pollution', {'lat': '${UserData.lat}', 'lon': '${UserData.lon}', 'appid': UserData.appid});
-
-    // Await the http get response, then decode the json-formatted response.
-    var response = await http.get(url);
-    if (response.statusCode == 200) {
-      AirPollution pollution = AirPollution.fromJson(jsonDecode(response.body));
-      // print(pollution);
-      _airPollution = pollution;
-    } else {
-      print('Request failed with status: ${response.statusCode}.');
-    }
-  }
+  //
+  // static AirPollution? _airPollution;
+  //
+  // static Future<void> displayText() async {
+  //   var url =
+  //       Uri.https('api.openweathermap.org', '/data/2.5/weather', {'q' : UserData.city, 'appid' : UserData.appid});
+  //
+  //   // Await the http get response, then decode the json-formatted response.
+  //   var response = await http.get(url);
+  //   if (response.statusCode == 200) {
+  //     AirPollution pollution = AirPollution.fromJson(jsonDecode(response.body));
+  //     // print(pollution);
+  //     _airPollution = pollution;
+  //   } else {
+  //     print('Request failed with status: ${response.statusCode}.');
+  //   }
+  // }
 
   late TextEditingController _controller;
 
@@ -117,18 +118,25 @@ class ChangeLocationn extends State<ChangeLocation> {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: const Text('Thanks!'),
-                                  content: Text(_controller.text),
-                                    /*
-                                      'You typed "$value", which has length ${value
-                                          .characters.length}.'),*/
+                                  title: const Text('Entered location'),
+                                  content: Text(_controller.text.length > 0 ? "${_controller.text[0].toUpperCase()}${_controller.text.substring(1)}" : " "),
                                   actions: <Widget>[
                                     TextButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        await UserData.setLocation(_controller.text.length > 0 ? "${_controller.text[0].toUpperCase()}${_controller.text.substring(1)}" : " ");
                                         Navigator.pop(context);
-                                        UserData.city = _controller.text;
+                                        if(UserData.validLocation){
+                                          Navigator.push(context, MaterialPageRoute(
+                                              builder: (context) => HomeScreen()
+                                          ));
+                                        }
+                                        else {
+                                          Navigator.push(context, MaterialPageRoute(
+                                              builder: (context) => ChangeLocation()
+                                          ));
+                                        }
                                       },
-                                      child: const Text('OK'),
+                                      child: Text('OK'),
                                     ),
                                   ],
                                 );
@@ -137,7 +145,7 @@ class ChangeLocationn extends State<ChangeLocation> {
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Enter a new location',
+                            labelText: UserData.validLocation ? 'Enter a new location' : 'Invalid location, try again',
                             labelStyle:TextStyle(
                               decorationColor: Colors.white,
                               color: Colors.white

@@ -15,22 +15,15 @@ void main() async {
 
   UserData.saveData();
 
+  // default values - Belgrade
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  String str = prefs.getString('city') ?? '';
-  double lon = prefs.getDouble('lon') ?? 0;
-  double lat = prefs.getDouble('lat') ?? 0;
+  String str = prefs.getString('city') ?? "Belgrade";
+  double lon = prefs.getDouble('lon') ?? 20.4651;
+  double lat = prefs.getDouble('lat') ?? 44.804;
 
-  //print(stringValue);
-
-
-  /// this part will be in loading data func
   UserData.lon = lon;
   UserData.lat = lat;
   UserData.city = str;
-
-  print(lon);
-  print(lat);
-  print(str);
 
  // await changeLocation.displayText();
   await HomeScreen.displayText();

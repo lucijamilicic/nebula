@@ -30,6 +30,8 @@ class AqiScreen extends StatelessWidget{
       AirPollution pollution = AirPollution.fromJson(jsonDecode(response.body));
       // print(pollution);
       _airPollution = pollution;
+      print(UserData.city.toString() + " " + UserData.lon.toString() + " " + UserData.lat.toString());
+
     } else {
       print('Request failed with status: ${response.statusCode}.');
     }

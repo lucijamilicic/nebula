@@ -29,6 +29,8 @@ class HomeScreen extends StatelessWidget{
       _weatherInfo = info;
       //print(info.wmain);
 
+      print(UserData.city.toString() + " " +  UserData.lon.toString() + " " + UserData.lat.toString());
+
       var now = DateTime.now();
       var formatter = DateFormat('dd.MM.yyyy.');
       _dateFormatted = formatter.format(now);
