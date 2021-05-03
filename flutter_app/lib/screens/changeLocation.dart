@@ -1,19 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:convert';
-import 'package:intl/intl.dart';
-import 'aqiScreen.dart';
 import './mainDrawer.dart';
-import 'package:flutter_app/airQualityModel.dart';
 import 'package:flutter_app/loadingData.dart';
 import 'package:flutter_app/screens/resizingScreens.dart';
-
-
-import 'package:flutter_app/loadingData.dart';
-import './mainDrawer.dart';
-import 'package:flutter_app/weatherModel.dart';
 import 'resizingScreens.dart';
 import './homeScreen.dart';
 
@@ -93,7 +83,6 @@ class ChangeLocationn extends State<ChangeLocation> {
                           style:TextStyle(
                             color:Colors.white
                           ),
-                          //obscureText: true,
                           autofocus: true,
                           controller: _controller,
                           onSubmitted: (String value) async {

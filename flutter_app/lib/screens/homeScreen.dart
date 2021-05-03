@@ -24,10 +24,8 @@ class HomeScreen extends StatelessWidget{
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
     if (response.statusCode == 200) {
-      //print(response.body);
       WeatherInfo info = WeatherInfo.fromJson(jsonDecode(response.body));
       _weatherInfo = info;
-      //print(info.wmain);
 
 
       print(UserData.city.toString() + " " +  UserData.lon.toString() + " " + UserData.lat.toString());
@@ -35,10 +33,7 @@ class HomeScreen extends StatelessWidget{
       var now = DateTime.now();
       var formatter = DateFormat('dd.MM.yyyy.');
       _dateFormatted = formatter.format(now);
-      //print(_dateFormatted);
 
-      //print(info.toString());
-      //print(response.body);
     } else {
       print('Request failed with status: ${response.statusCode}.aaaa');
     }

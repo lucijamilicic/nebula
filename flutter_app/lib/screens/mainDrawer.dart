@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/loadingData.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../loadingData.dart';
 import './aqiScreen.dart';
 import './homeScreen.dart';
 import 'resizingScreens.dart';
@@ -38,7 +36,6 @@ class MainDrawer extends StatelessWidget {
               style: GoogleFonts.lato(
                   fontSize: 25,
                   color: Colors.white,
-                  //fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
@@ -57,7 +54,6 @@ class MainDrawer extends StatelessWidget {
               style: GoogleFonts.lato(
                 fontSize: 25,
                 color: Colors.white,
-                //fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
@@ -76,17 +72,14 @@ class MainDrawer extends StatelessWidget {
               style: GoogleFonts.lato(
                 fontSize: 25,
                 color: Colors.white,
-                //fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
-                // ChangeLocationn.displayText();
                 Navigator.push(context, MaterialPageRoute(
                 builder: (context) => ChangeLocation()
                 ));
                 },
               // TODO: implement card for changing location
-    //Navigator.pop(context); // close the drawer
           ),
         ],
       ),

@@ -1,19 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
-///parsing json response in format:
-//{"coord":{"lon":20.4651,"lat":44.804},
-// "weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03d"}],
-// "base":"stations",
-// "main":{"temp":11.59,"feels_like":10.79,"temp_min":11,"temp_max":13,"pressure":1014,"humidity":76},
-// "visibility":10000,
-// "wind":{"speed":1.03,"deg":0},
-// "clouds":{"all":40},
-// "dt":1618928402,
-// "sys":{"type":1,"id":7028,"country":"RS","sunrise":1618890301,"sunset":1618939719},
-// "timezone":7200,
-// "id":792680,
-// "name":"Belgrade",
-// "cod":200}
 
 class Coord {
   double lon;
@@ -67,7 +51,6 @@ class Weather {
   }
 }
 
-// "main":{"temp":11.59,"feels_like":10.79,"temp_min":11,"temp_max":13,"pressure":1014,"humidity":76},
 class WMain {
   double temp;
   double feels_like;
