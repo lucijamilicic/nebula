@@ -22,14 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="294c2b06-fd48-4ab9-8cf2-438c1b6a1c36" name="Default Changelist" comment="location 2.0">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/lib/loadingData.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/loadingData.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/lib/screens/changeLocation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/screens/changeLocation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/lib/screens/homeScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/screens/homeScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/lib/screens/mainDrawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/screens/mainDrawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/lib/weatherModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/weatherModel.dart" afterDir="false" />
-    </list>
+    <list default="true" id="294c2b06-fd48-4ab9-8cf2-438c1b6a1c36" name="Default Changelist" comment="code improvement" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619901713908</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="code improvement">
+      <created>1620030120621</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620030120621</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,7 +96,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="location changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="location changes" />
+    <MESSAGE value="code improvement" />
+    <option name="LAST_COMMIT_MESSAGE" value="code improvement" />
   </component>
   <component name="WindowStateProjectService">
     <state x="48" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618936804397">
@@ -121,25 +122,25 @@
     </state>
     <state x="332" y="124" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1619905427350" />
     <state x="373" y="140" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618936702876" />
-    <state width="1323" height="171" key="GridCell.Tab.0.bottom" timestamp="1620029807117">
+    <state width="1323" height="171" key="GridCell.Tab.0.bottom" timestamp="1620031031347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1620029807117" />
+    <state width="1323" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1620031031347" />
     <state width="1050" height="198" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
-    <state width="1323" height="171" key="GridCell.Tab.0.center" timestamp="1620029807117">
+    <state width="1323" height="171" key="GridCell.Tab.0.center" timestamp="1620031031347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1620029807117" />
+    <state width="1323" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1620031031347" />
     <state width="1050" height="198" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
-    <state width="1323" height="171" key="GridCell.Tab.0.left" timestamp="1620029807117">
+    <state width="1323" height="171" key="GridCell.Tab.0.left" timestamp="1620031031347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1620029807117" />
+    <state width="1323" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1620031031347" />
     <state width="1050" height="198" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
-    <state width="1323" height="171" key="GridCell.Tab.0.right" timestamp="1620029807117">
+    <state width="1323" height="171" key="GridCell.Tab.0.right" timestamp="1620031031347">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1620029807117" />
+    <state width="1323" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1620031031347" />
     <state width="1050" height="198" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619087964252" />
     <state x="456" y="66" key="RollbackChangesDialog" timestamp="1619886919770">
       <screen x="0" y="0" width="1366" height="728" />
