@@ -133,7 +133,6 @@ class ChangeLocationn extends State<ChangeLocation> {
                               decorationColor: Colors.white,
                               color: Colors.white
                             ),
-                            //hintText: '________________',
                             hintStyle: TextStyle(
                               color:Colors.white
                             ),
