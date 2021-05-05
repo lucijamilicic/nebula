@@ -12,9 +12,6 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-
-  UserData.saveData();
-
   // default values - Belgrade
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String str = prefs.getString('city') ?? "Belgrade";

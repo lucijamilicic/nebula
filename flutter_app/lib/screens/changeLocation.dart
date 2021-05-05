@@ -69,19 +69,20 @@ class ChangeLocationn extends State<ChangeLocation> {
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: SizeConfig.blockSizeVertical! * 10),
+                        SizedBox(height: SizeConfig.blockSizeVertical! * 15),
                         Text(
                           'Enter location: ',
                           style: GoogleFonts.lato(
-                            fontSize: 30,
+                            fontSize: 35,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
                         SizedBox(height: SizeConfig.blockSizeVertical! * 5),
                         TextField(
-                          style:TextStyle(
-                            color:Colors.white
+                          style: GoogleFonts.lato(
+                            color:Colors.white,
+                            fontSize: 22,
                           ),
                           autofocus: true,
                           controller: _controller,
@@ -90,8 +91,21 @@ class ChangeLocationn extends State<ChangeLocation> {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  title: const Text('Entered location'),
-                                  content: Text(_controller.text.length > 0 ? "${_controller.text[0].toUpperCase()}${_controller.text.substring(1)}" : " "),
+                                  backgroundColor: Colors.white24,
+                                  title: Text(
+                                    'Entered location',
+                                    style: GoogleFonts.lato(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  content: Text(
+                                    _controller.text.length > 0 ? "${_controller.text[0].toUpperCase()}${_controller.text.substring(1)}" : " ",
+                                    style: GoogleFonts.lato(
+                                      color: Colors.white,
+                                      fontSize: 28,
+                                    ),
+                                  ),
                                   actions: <Widget>[
                                     TextButton(
                                       onPressed: () async {
@@ -108,7 +122,14 @@ class ChangeLocationn extends State<ChangeLocation> {
                                           ));
                                         }
                                       },
-                                      child: Text('OK'),
+                                      child: Text(
+                                          'OK',
+                                          style: GoogleFonts.lato(
+                                            color: Colors.greenAccent,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold
+                                          ),
+                                      ),
                                     ),
                                   ],
                                 );
@@ -118,7 +139,7 @@ class ChangeLocationn extends State<ChangeLocation> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: UserData.validLocation ? 'Enter a new location' : 'Invalid location, try again',
-                            labelStyle:TextStyle(
+                            labelStyle: GoogleFonts.lato(
                               decorationColor: Colors.white,
                               color: Colors.white
                             ),
