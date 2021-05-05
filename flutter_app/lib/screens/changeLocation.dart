@@ -87,54 +87,19 @@ class ChangeLocationn extends State<ChangeLocation> {
                           autofocus: true,
                           controller: _controller,
                           onSubmitted: (String value) async {
-                            await showDialog<void>(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  backgroundColor: Colors.white24,
-                                  title: Text(
-                                    'Entered location',
-                                    style: GoogleFonts.lato(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  content: Text(
-                                    _controller.text.length > 0 ? "${_controller.text[0].toUpperCase()}${_controller.text.substring(1)}" : " ",
-                                    style: GoogleFonts.lato(
-                                      color: Colors.white,
-                                      fontSize: 28,
-                                    ),
-                                  ),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () async {
-                                        await UserData.setLocation(_controller.text.length > 0 ? "${_controller.text[0].toUpperCase()}${_controller.text.substring(1)}" : " ");
-                                        Navigator.pop(context);
-                                        if(UserData.validLocation){
-                                          Navigator.push(context, MaterialPageRoute(
-                                              builder: (context) => HomeScreen()
-                                          ));
-                                        }
-                                        else {
-                                          Navigator.push(context, MaterialPageRoute(
-                                              builder: (context) => ChangeLocation()
-                                          ));
-                                        }
-                                      },
-                                      child: Text(
-                                          'OK',
-                                          style: GoogleFonts.lato(
-                                            color: Colors.greenAccent,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold
-                                          ),
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                            await UserData.setLocation(_controller.text.length > 0 ? "${_controller.text[0].toUpperCase()}${_controller.text.substring(1)}" : " ");
+                            Navigator.pop(context);
+                            if(UserData.validLocation){
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => HomeScreen()
+                              ));
+                            }
+                            else {
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) => ChangeLocation()
+                              ));
+                            }
+
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
