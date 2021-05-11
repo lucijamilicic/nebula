@@ -99,7 +99,6 @@ class ChangeLocationn extends State<ChangeLocation> {
                                   builder: (context) => ChangeLocation()
                               ));
                             }
-
                           },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -114,7 +113,6 @@ class ChangeLocationn extends State<ChangeLocation> {
                           ),
                         )
                       ]
-
                   ),
                 ],
               ),

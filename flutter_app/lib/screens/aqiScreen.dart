@@ -14,7 +14,6 @@ import 'package:flutter_app/screens/resizingScreens.dart';
 class AqiScreen extends StatelessWidget{
   // ? allows it to have null value so when we change its type from string to some object we dont have to change logic
   static AirPollution? _airPollution;
-  //static UserData? _userData;
 
   static Future<void> displayText() async {
 
@@ -28,10 +27,7 @@ class AqiScreen extends StatelessWidget{
     var response = await http.get(url);
     if (response.statusCode == 200) {
       AirPollution pollution = AirPollution.fromJson(jsonDecode(response.body));
-      // print(pollution);
       _airPollution = pollution;
-      print(UserData.city.toString() + " " + UserData.lon.toString() + " " + UserData.lat.toString());
-
     } else {
       print('Request failed with status: ${response.statusCode}.');
     }
@@ -45,6 +41,7 @@ class AqiScreen extends StatelessWidget{
     SizeConfig.init(context);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
@@ -124,8 +121,6 @@ class AqiScreen extends StatelessWidget{
 
                         ],
                       )
-
-
                 ],
               )
             )

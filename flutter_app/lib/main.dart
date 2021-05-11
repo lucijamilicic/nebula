@@ -23,7 +23,7 @@ void main() async {
   UserData.city = str;
 
  // await changeLocation.displayText();
-  await HomeScreen.displayText();
+  await HomeScreenn.displayText();
   await AqiScreen.displayText();
   runApp(MyApp());
 

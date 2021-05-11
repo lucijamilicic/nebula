@@ -39,7 +39,7 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              HomeScreen.displayText();
+              HomeScreenn.displayText();
               Navigator.push(context, MaterialPageRoute(
                   builder: (context) => HomeScreen()
               ));

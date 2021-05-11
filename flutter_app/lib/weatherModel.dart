@@ -7,8 +7,8 @@ class Coord {
 
   factory Coord.fromJson(Map<String, dynamic> json) {
     return Coord(
-        lon: json['lon'] as double,
-        lat: json['lat'] as double
+        lon: json['lon'].toDouble(),
+        lat: json['lat'].toDouble()
     );
   }
 
@@ -102,7 +102,7 @@ class Wind {
 
   factory Wind.fromJson(Map<String, dynamic> json) {
     return Wind(
-        speed: json['speed'],
+        speed: json['speed'].toDouble(),
         deg: json['deg']
     );
   }
@@ -219,8 +219,8 @@ class WeatherInfo {
     return (this.wmain.getFeelsLike()).toStringAsFixed(1);
   }
 
-  double getWindSpeed() {
-    return this.wind.getWindSpeed();
+  String getWindSpeed() {
+    return (this.wind.getWindSpeed()).toStringAsFixed(1);
   }
 
   String getMinTemp() {
@@ -231,9 +231,4 @@ class WeatherInfo {
     return (this.wmain.getMaxTemp()).toStringAsFixed(1);
   }
 
-  @override
-  String toString() {
-    // TODO: implement toString
-    return 'radi';
-  }
 }
