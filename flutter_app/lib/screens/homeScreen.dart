@@ -89,14 +89,47 @@ class HomeScreenn extends State<HomeScreen>{
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(height: SizeConfig.blockSizeVertical! * 12,),
+                            Text(
+                              '${UserData.city}',
+                              style: GoogleFonts.lato(
+                                fontSize: 12*SizeConfig.blockSizeHorizontal!,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+
+                            SizedBox(
+                              height: SizeConfig.blockSizeVertical!,
+                            ),
+                            Text(
+                              _dateFormatted!,
+                              style: GoogleFonts.lato(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '${_weatherInfo?.getTemp()}${UserData.c_or_f}',
+                              style: GoogleFonts.lato(
+                                fontSize: 55,
+                                fontWeight: FontWeight.w300,
+                                color: Colors.white,
+                              ),
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '${UserData.city}',
+                                  'Feels like: ${_weatherInfo?.getFeelsLike()}${UserData.c_or_f}',
                                   style: GoogleFonts.lato(
-                                    fontSize: 10*SizeConfig.blockSizeHorizontal!,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w500,
                                     color: Colors.white,
                                   ),
                                 ),
@@ -123,41 +156,8 @@ class HomeScreenn extends State<HomeScreen>{
                                               HomeScreen()
                                       ));
                                     }
-                                )
-
+                                ),
                               ],
-                            ),
-                            SizedBox(
-                              height: SizeConfig.blockSizeVertical!,
-                            ),
-                            Text(
-                              _dateFormatted!,
-                              style: GoogleFonts.lato(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '${_weatherInfo?.getTemp()}${UserData.c_or_f}',
-                              style: GoogleFonts.lato(
-                                fontSize: 55,
-                                fontWeight: FontWeight.w300,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              'Feels like: ${_weatherInfo?.getFeelsLike()}${UserData.c_or_f}',
-                              style: GoogleFonts.lato(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                              ),
                             ),
                           ],
                         ),

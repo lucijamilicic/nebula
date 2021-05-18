@@ -24,8 +24,14 @@
   <component name="ChangeListManager">
     <list default="true" id="294c2b06-fd48-4ab9-8cf2-438c1b6a1c36" name="Default Changelist" comment="code improvement">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_1_2021_17_01_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_1_2021_17_01__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_3_2021_8_51_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_3_2021_8_51__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_app/lib/screens/changeLocation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/screens/changeLocation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_app/lib/screens/homeScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/screens/homeScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_app/lib/weatherModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/lib/weatherModel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flutter_app/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_app/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

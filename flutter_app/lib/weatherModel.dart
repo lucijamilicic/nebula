@@ -41,6 +41,8 @@ class Weather {
       str = 'fog';
     if(str=='sqall' || str=='tornado' || str=='sand' || str=='ash')
       str = 'dust';
+    if(str!='clear' && str!='clouds' && str!='drizzle' && str!='dust' && str!='fog' && str!='rain' && str!='snow' && str!='thunderstorm')
+        str = 'night';
 
     return str + '.jpg';
   }
