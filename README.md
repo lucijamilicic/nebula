@@ -7,7 +7,7 @@ Nebula, weather app je aplikacija namenjena android uređajima. Aplikacija je na
 Korišćen je programski jezik Dart i framework Flutter u Android Studio okruženju.
 
 # :calling: Pokretanje
-Aplikacija je podržana za Android. Da bi se pokrenula na računaru potrebno je imati Android Studio, Dart i Flutter sdk. Možemo je pomoću aplikacije Vysor instalirati na mobilni uređaj sa Android operativnim sistemom i nakon toga preko mobilnog uređaja pokretati je kao i sve ostale aplikacije.
+Aplikacija je podržana za Android. Da bi se pokrenula na računaru potrebno je imati Android Studio, Dart i Flutter sdk. Za instaliranje aplikacije na mobilnom uređaju, potrebno je preuzeti nebula.apk fajl iz https://github.com/matf-pp/2021_Nebula/releases, a nakon toga preko mobilnog uređaja pokretati kao i sve ostale aplikacije.
 
 # :mailbox_with_mail: Autori
 Lucija Miličić 29/2018 lucija.milicic99@gmail.com
