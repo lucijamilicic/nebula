@@ -88,14 +88,14 @@ class HomeScreenn extends State<HomeScreen>{
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: SizeConfig.blockSizeVertical! * 10,),
+                            SizedBox(height: SizeConfig.blockSizeVertical! * 12,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   '${UserData.city}',
                                   style: GoogleFonts.lato(
-                                    fontSize: 50,
+                                    fontSize: 10*SizeConfig.blockSizeHorizontal!,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                   ),
@@ -109,7 +109,7 @@ class HomeScreenn extends State<HomeScreen>{
                                     inactiveColor: Colors.blueGrey,
                                     inactiveTextColor: Colors.white,
                                     valueFontSize: 15.0,
-                                    width: 100,
+                                    width: 20 * SizeConfig.blockSizeHorizontal!,
                                     borderRadius: 30.0,
                                     showOnOff: true,
                                     onToggle: (val) async {
@@ -133,7 +133,7 @@ class HomeScreenn extends State<HomeScreen>{
                             Text(
                               _dateFormatted!,
                               style: GoogleFonts.lato(
-                                fontSize: 25,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
