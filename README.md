@@ -11,7 +11,7 @@ Korišćen je programski jezik Dart i framework Flutter u Android Studio okruže
 
 # :calling: Pokretanje
 Aplikacija je podržana za Android. Da bi se pokrenula na računaru potrebno je imati Android Studio, Dart i Flutter sdk. Za instaliranje aplikacije na mobilnom uređaju, potrebno je preuzeti nebula.apk fajl iz https://github.com/matf-pp/2021_Nebula/releases, a nakon toga preko mobilnog uređaja pokretati kao i sve ostale aplikacije. Još jedan način je pokretanje aplikacije skeniranjem sledećeg qr koda:
-scan.jpeg
+![qr](scan.jpeg?raw=true "qr")
 
 
 
